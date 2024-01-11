@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "The JavaScript template",
   "scripts": {
-    "start": "parcel ./src/index.html",
+    "start": "parcel ./src/index.html && parcel watch ./src/index.html --no-hmr",
     "build": "parcel build ./src/index.html"
   },
   "devDependencies": {

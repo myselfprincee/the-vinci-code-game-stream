@@ -1,15 +1,124 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>JavaScript Sandbox</title>
-    <meta charset="UTF-8" />
-  </head>
 
-  <body>
-      <h1>Welcome to The Vinci Code.</h1>
-      <section id="game">
-        
-      </section>
+<html lang="en">
+
+<head>
+  <title>The Vinci Code Game</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+  <header>
+    <h1 class="h1-animation">The Vinci Code.</h1>
+  </header>
+
+  <div class="container">
+    <div class="name"></div>
+    <button class='update-name' data-val="3">(Update Name)</button>
+    <div class="options-container">
+      <div id="start-new-game" class="card pixel-corners">
+        <p class="options">Start New Game</p>
+        <img width="100" height="100" draggable="false"
+          src="https://img.icons8.com/color-pixels/2000/experimental-controller-color-pixels.png"
+          alt="experimental-controller-color-pixels" />
+      </div>
+      <div id="show-leaderboard" class="card pixel-corners">
+        <p class="options">See Leaderboard</p>
+        <img width="100" height="100" draggable="false"
+          src="https://img.icons8.com/color-pixels/2000/experimental-contest-color-pixels.png"
+          alt="experimental-contest-color-pixels" />
+      </div>
+    </div>
+
+
+  </div>
+
+  <!-- Dialog for Game Info ------------------------------------------------------------------------->
+  <dialog class="dialog" id="dialog">
+    <section>
+      <h2 class="h2">How to Play:</h2>
+
+      <img class="cancel-btn" src="https://img.icons8.com/pixels/1000/FF0000/cancel.png" draggable="false"
+        alt="cancel" />
+
+      <ul>
+        <section>
+          <h3>Enter Your Name:</h3>
+          <li>When prompted, enter your name.</li>
+        </section>
+
+        <section>
+          <h3>Menu Options:</h3>
+          <li class="li">Start New Game: Begin a new game and try to memorize and enter sequences of random numbers.
+          </li>
+          <li>See Leaderboard: Check out the leaderboard.</li>
+          <li>Update Name: Change your displayed name.</li>
+        </section>
+
+        <section>
+          <h3>Gameplay:</h3>
+          <li>Start a New Game to initiate the memory challenge.</li>
+          <li>Memorize and enter the sequence of numbers shown to you.</li>
+          <li>Successfully completing a level advances you to the next with an additional number.</li>
+        </section>
+
+        <section>
+          <h3>Scoring:</h3>
+          <li>Your final score is the highest level you reach before making a mistake.</li>
+        </section>
+      </ul>
+    </section>
+  </dialog>
+  <!----------------------------------------------------------------------------------------------->
+
+
+  <!-- Dialog for Setting and Updating Name---------------------------------------------------------------------- -->
+  <dialog class="name-dialog">
+    <img class="cancelbtn" width="60" height="60" draggable="false"
+      src="https://img.icons8.com/pixels/1000/FF0000/cancel.png" alt="cancel" />
+    <h4>update name</h4>
+    <span class="name-input-cont">
+      <input class="name-input" type="text" placeholder="Your updated name here">
+      <span style="display: flex; justify-content: space-around;">
+        <button id="save-name" class="btn pixel-corners">Save</button>
+        <button id="guest" class="btn pixel-corners" style="background-color: red;">Guest</button>
+      </span>
+    </span>
+  </dialog>
+  <!-------------------------------------------------------------------------------------------------------------->
+
+
+  <!-- Dialog for LEADERBOARD  ---------------------------------------------------------------------- -->
+  <dialog class="leaderboard-dialog name-dialog">
+    <img class="cancelbtn cancel-btn" width="60" height="60" draggable="false"
+      src="https://img.icons8.com/pixels/1000/FF0000/cancel.png" alt="cancel" />
+    <h4>LEADERBOARD</h4>
+    <span id="highScore">Play A Game First</span>
+    <h5>Previous Scores :</h5>
+    <ul class="scores-list"></ul>
+    </span>
+  </dialog>
+  <!-------------------------------------------------------------------------------------------------------------->
+
+  <!-- Dialog for Showing digits  ---------------------------------------------------------------------- -->
+  <dialog class="newgame-dialog name-dialog">
+    <img class="cancelbtn cancel-btn" width="60" height="60" draggable="false"
+      src="https://img.icons8.com/pixels/1000/FF0000/cancel.png" alt="cancel" />
+    <h3>Game On</h3>
+    <span id="generatedNumber"></span>
+  </dialog>
+  <!-------------------------------------------------------------------------------------------------------------->
+
+  <img class="info" width="70" height="70" draggable="false"
+    src="https://img.icons8.com/color-pixels/1000/experimental-question-mark-color-pixels.png"
+    alt="experimental-question-mark-color-pixels" />
+
+  <footer>
     <script src="./index.mjs" type="module"></script>
-  </body>
+    <script src="./styling.mjs" type="module"></script>
+  </footer>
+</body>
+
 </html>

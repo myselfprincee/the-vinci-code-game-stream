@@ -1,3 +1,411 @@
-body {
-  font-family: sans-serif;
+@font-face {
+  font-family: "Pixcon";
+  src: url("../assets/PixCon.ttf");
+}
+
+:root {
+  --pixel-bg: lightblue;
+  /* Inner background color */
+  --pixel-border: black;
+  /* Inner border color: */
+  --pixel-border-2: white;
+  /* Middle border color: */
+  --pixel-border-3: var(--pixel-border);
+  /* Outer border color */
+  --pixel: .125rem;
+  /* Pixel size */
+}
+
+* {
+  font-family: "Pixcon";
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  /* font-family: 'Press Start 2P', system-ui; */
+}
+
+dialog {
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.dialog {
+  width: fit-content;
+  height: fit-content;
+}
+
+img{
+  user-select: none;
+  pointer-events: none;
+}
+
+li {
+  font-size: 10px;
+}
+
+h3 {
+  font-size: 16px;
+}
+
+p {
+  font-size: 16px;
+}
+
+.info {
+  position: absolute;
+  pointer-events: all;
+  right: 1rem;
+  bottom: 1rem;
+  cursor: pointer;
+  float: right;
+  user-select: none;
+  filter: drop-shadow(0 0 0.75rem #064678);
+}
+
+.cancel-btn, .cancelbtn {
+  pointer-events: all;
+  position: absolute;
+  height: 70px;
+  width: 70px;
+  top: 20;
+  cursor: pointer;
+  right: 20;
+}
+
+.leaderboard-dialog{
+  min-height: auto;
+  height: 80%;
+
+}
+
+.scores-list{
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+html {
+  background-color: #021a2d;
+  color: white;
+}
+
+.h1-animation {
+  text-align: center;
+  font-size: 3rem;
+  width: 100vw;
+  overflow: hidden;
+  margin: auto;
+  left: 50%;
+  /* transform: translateX(-50%); */
+  animation: slideAnimation 4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+
+
+}
+
+@keyframes slideAnimation {
+  0% {
+    top: 50%;
+    position: absolute;
+    transform: translate(-50%, 100%);
+    opacity: 0%;
+    /* Start from bottom */
+  }
+
+  25% {
+    top: 40%;
+    position: absolute;
+    transform: translate(-50%, 0%);
+    opacity: 100%;
+    /* Quarterway between the top and the bottom, continue fading in */
+  }
+
+  75% {
+    top: 40%;
+    position: absolute;
+    transform: translate(-50%, 0%);
+    opacity: 100%;
+    /* Three-quarters of the way, stay at the top */
+  }
+
+  100% {
+    top: 5%;
+    position: absolute;
+    transform: translate(-50%, 0%);
+  }
+}
+
+.h1 {
+  text-align: center;
+  font-size: 3rem;
+  bottom: 0;
+  width: 100vw;
+  overflow-y: hidden;
+  margin: auto;
+  left: 50%;
+}
+
+.container {
+  margin-top: 10%;
+  display: flex;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#game {
+  margin-top: 3rem;
+  font-size: 1.7rem;
+}
+
+.options {
+  font-size: 1.5rem;
+}
+
+.card {
+  cursor: pointer;
+  padding: 10px 30px;
+  border-radius: 20px;
+  border: 8px solid #fff;
+}
+
+.pixel-corners {
+  clip-path: polygon(0px calc(100% - 20px),
+      4px calc(100% - 20px),
+      4px calc(100% - 12px),
+      8px calc(100% - 12px),
+      8px calc(100% - 8px),
+      12px calc(100% - 8px),
+      12px calc(100% - 4px),
+      20px calc(100% - 4px),
+      20px 100%,
+      calc(100% - 20px) 100%,
+      calc(100% - 20px) calc(100% - 4px),
+      calc(100% - 12px) calc(100% - 4px),
+      calc(100% - 12px) calc(100% - 8px),
+      calc(100% - 8px) calc(100% - 8px),
+      calc(100% - 8px) calc(100% - 12px),
+      calc(100% - 4px) calc(100% - 12px),
+      calc(100% - 4px) calc(100% - 20px),
+      100% calc(100% - 20px),
+      100% 20px,
+      calc(100% - 4px) 20px,
+      calc(100% - 4px) 12px,
+      calc(100% - 8px) 12px,
+      calc(100% - 8px) 8px,
+      calc(100% - 12px) 8px,
+      calc(100% - 12px) 4px,
+      calc(100% - 20px) 4px,
+      calc(100% - 20px) 0px,
+      20px 0px,
+      20px 4px,
+      12px 4px,
+      12px 8px,
+      8px 8px,
+      8px 12px,
+      4px 12px,
+      4px 20px,
+      0px 20px);
+}
+
+.options-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2rem;
+  gap: 2rem;
+  width: 100%;
+  text-align: center;
+}
+
+/* Add spacing to each li element within ul */
+ul li {
+  margin-bottom: 10px;
+  /* Adjust the value to your preference */
+}
+
+.update-name {
+  cursor: pointer;
+  color: pink;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.name {
+  font-size: 1.4rem;
+}
+
+
+/* Name DIALOG ============================================= */
+.name-dialog {
+  width: fit-content;
+  position: absolute;
+  padding: 2rem 3rem;
+  top: 0;
+
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+}
+
+.name-input {
+  text-decoration: none;
+  border: none;
+  border-bottom: 2px dashed #021a2d;
+  outline: none;
+
+}
+
+.name-input-cont {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+
+
+@media only screen and (max-width: 1068px) {
+  .h1-animation {
+    top: -10%;
+    font-size: 1.5rem;
+  }
+
+  .h1 {
+    font-size: 1rem;
+  }
+
+  .options {
+    font-size: 1.2rem;
+  }
+
+  .card {
+    padding: 10px 20px;
+    width: 80%;
+  }
+
+  .container {
+    margin-top: 15%;
+  }
+
+  .options-container {
+    gap: 1rem;
+    width: 80%;
+  }
+
+  /* @keyframes slideAnimation {
+      0% {
+        top: 50%;
+        position: absolute;
+        transform: translate(-50%, 100%);
+        opacity: 0%;
+      }
+    
+      50% {
+        top: 50%;
+        position: absolute;
+        transform: translate(-50%, 0%);
+        opacity: 100%;
+      }
+    
+      100% {
+        top: 5%;
+        position: absolute;
+        transform: translate(-50%, 0%);
+      }
+    } */
+
+  @keyframes slideAnimation {
+    0% {
+      top: 50%;
+      position: absolute;
+      transform: translate(-50%, 100%);
+      opacity: 0%;
+      /* Start from bottom */
+    }
+
+    15% {
+      top: 40%;
+      position: absolute;
+      transform: translate(-50%, 0%);
+      opacity: 100%;
+      /* Quarterway between the top and the bottom, continue fading in */
+    }
+
+    85% {
+      top: 40%;
+      position: absolute;
+      transform: translate(-50%, 0%);
+      opacity: 100%;
+      /* Three-quarters of the way, stay at the top */
+    }
+
+    100% {
+      top: 5%;
+      position: absolute;
+      transform: translate(-50%, 0%);
+    }
+  }
+
+  .h1 {
+    text-align: center;
+    font-size: 3rem;
+    bottom: 0;
+    width: 100vw;
+    overflow-y: hidden;
+    margin: auto;
+    left: 50%;
+  }
+
+  .h1-animation {
+    animation: slideAnimation 4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  .name {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    font-size: 1rem;
+  }
+
+  .dialog {
+    height: fit-content;
+    width: 75%;
+  }
+
+  .dialog ul {
+    padding: 0px;
+  }
+
+  .dialog ul li>* {
+    gap: 2rem;
+  }
+}
+
+@media only screen and (max-width: 568px) {
+  .h2 {
+    font-size: 1.1rem;
+  }
+
+  .cancel-btn {
+    height: 40px;
+    width: 40px;
+  }
+
+  .container {
+    margin-top: 25%;
+  }
+
+  .name-dialog{
+    width: 70%;
+  }
+
+  .leaderboard-dialog{
+    height: 80%;
+  }
 }
